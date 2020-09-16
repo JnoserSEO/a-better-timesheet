@@ -1,1 +1,3 @@
-# a-better-timesheet
+# A Better Timesheet
+
+React Typescript Timesheet App
