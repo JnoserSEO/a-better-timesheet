@@ -2,8 +2,8 @@
 
 .timesheet-entry {
     display:flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    // justify-content: space-between;
     background-color: $theme-green;
     margin: 10px; 
     font-size: 1.15rem;
@@ -14,7 +14,7 @@
     transition-property: background, border;
     transition-duration: 0.2s;
     // font-weight: bolder;
-} 
+}
 
 .timesheet-entry:hover{
     background-color: $theme-green-opacity;
@@ -22,6 +22,12 @@
     cursor: pointer;
 }
 
+.timesheet-text-div{
+    display:flex;
+    // flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 10;
+}
 
 .timesheet-entry-name{
     display:flex;
@@ -31,10 +37,33 @@
     width:fit-content;
 }
 
-
 .timesheet-entry-hours{
     display:flex;
     justify-content: flex-end;
     margin-right:5px;
     // margin-bottom:5px;
+}
+
+@mixin timesheet-delete-reset{
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    margin-right: -8px;
+    align-self: end;
+    margin-top:-5px;
+}
+
+.timesheet-entry-delete{
+    @include timesheet-delete-reset;
+}
+
+.timesheet-entry-delete:hover{
+    color:white;
+    cursor: pointer;
+}
+
+.timesheet-entry-delete:active,.timesheet-entry-delete:focus {
+    @include timesheet-delete-reset;
+    outline: none;
+    box-shadow:none;
 }

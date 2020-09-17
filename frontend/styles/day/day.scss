@@ -1,49 +1,13 @@
 @import '../colors/colors';
 
 
-
-.day-inner {
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
-    width:fit-content;
-    margin-left:-2px;
+table, th, td {
+  border: 0.5px solid black;
+  border-collapse: collapse;
 }
 
-.add-div{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.add{
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  font-size: 2.5rem;
-  font-weight: 500;
-  border:0.6px;
-  border-style: solid;
-  border-color: black;
-  text-align: center;
-  line-height: 1.9rem;
-  margin-right: 5px;
-  margin-bottom: 5px;
-}
-
-.add:hover{
-    background: $theme-green;
-    color:white;
-    cursor:pointer;
-    border-color:white;
-}
-
-.day-total {
-    border:0px;
-    border-top:2px;
-    border-style: solid;
-    border-color:black;
-    text-align:center;
-    font-size:1.5rem;
-    font-weight:900;
-    padding:10px;
+.hours-td{
+    border-bottom-color: white;
+    min-width: 225px;
+    vertical-align: top;
 }

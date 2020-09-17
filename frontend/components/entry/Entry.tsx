@@ -14,8 +14,11 @@ const flexString = (hours:number):'column'|'row' => {
 }
 
 export const Entry:React.FC<EntryProps> = ({hours,name})=>{
-    return <div className="timesheet-entry" style={{height:`${23*hours}px`,flexDirection:flexString(hours)}} >
-        <div className="timesheet-entry-name"><span>{name}</span></div>
-        <div className="timesheet-entry-hours"><span>{`${hours} Hour${hours > 1 ? 's' : '  '}`}</span></div>
+    return <div className="timesheet-entry" style={{height:`${23*hours}px`}} >
+        <div className="timesheet-text-div" style={{flexDirection:flexString(hours)}} >
+            <div className="timesheet-entry-name"><span>{name}</span></div>
+            <div className="timesheet-entry-hours"><span>{`${hours} Hour${hours > 1 ? 's' : '  '}`}</span></div>
+        </div>
+        <button className="timesheet-entry-delete"><i className="fa fa-close"></i></button>
     </div>
 }
