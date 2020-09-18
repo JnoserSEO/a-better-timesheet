@@ -44,3 +44,26 @@ table, th, td {
     cursor:pointer;
     border-color:white;
 }
+
+.week-total-div{
+  display: flex;
+  flex-direction: row;
+}
+
+.week-total-hours{
+  height:29px;
+  padding:10px;
+  padding-right: 50px;
+  padding-left: 20px;
+  font-size:1.5rem;
+  background:#c4c4c4;
+  width:fit-content;
+}
+
+.triangle-topleft {
+  width: 0;
+  height: 0;
+  border-bottom: 49px solid #c4c4c4;
+  border-right: 49px solid transparent;
+  transform: rotate(90deg);
+}

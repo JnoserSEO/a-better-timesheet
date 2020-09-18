@@ -1,0 +1,47 @@
+@import '../colors/colors';
+
+.week-menu {
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    // position: absolute;
+    margin-bottom:10px;
+}
+
+.week-menu-week-selector {
+    display:flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+}
+
+@mixin week-select-mix{
+    margin-left:20px;
+    margin-right:20px;
+    height:51px;
+    width:211px;
+    border-color:black;
+    border-width: 2px;
+    text-align: center;
+    line-height: 3rem;
+    // &:hover{
+    //     background:$theme-green;
+    //     color:white;
+    // }
+}
+
+.week-selected {
+    @include week-select-mix;
+    background-color:#2B2B2B;
+    color:white;
+}
+
+.week-not-selected {
+    @include week-select-mix;
+    background-color:white;
+    border-style: dashed;
+    cursor: pointer;
+    &:hover{
+        background: #c4c4c4;
+        color:white;
+    }
+}
