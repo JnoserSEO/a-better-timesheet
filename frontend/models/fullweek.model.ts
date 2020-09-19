@@ -14,11 +14,11 @@ type FullWeekTupple = [
     Saturday:DayEntry,
 ]
 
-interface ObjectwithKeys {
-    [index: string]: any;
+interface DayofWeekIndexed {
+    [key: string]: DayEntry;
 }
 
-export interface FullWeekObject extends ObjectwithKeys {
+export interface FullWeekObject extends DayofWeekIndexed {
     Sunday: DayEntry,
     Monday: DayEntry,
     Tuesday: DayEntry,

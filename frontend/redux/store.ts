@@ -1,41 +1,33 @@
 import { createStore, combineReducers } from 'redux'
-import {startOfWeekYear} from 'date-fns'
-import newFullWeek, {dayToProperNameToIndex} from '../utility/newFullWeek'
-import FullWeek, {DayofWeek,DayEntry} from '../models/fullweek.model'
+import newFullWeek from '../utility/newFullWeek'
+import { DayofWeek } from '../models/fullweek.model'
 import { EntryProps } from '../components/entry/Entry'
 
-const days: FullWeek = [
-    { dayOfWeek: 'Sunday', date: new Date(), data: [] },
-    { dayOfWeek: 'Monday', date: new Date(), data: [] },
-    { dayOfWeek: 'Tuesday', date: new Date(), data: [] },
-    { dayOfWeek: 'Wednesday', date: new Date(), data: [] },
-    { dayOfWeek: 'Thursday', date: new Date(), data: [] },
-    { dayOfWeek: 'Friday', date: new Date(), data: [] },
-    { dayOfWeek: 'Saturday', date: new Date(), data: [] }
-]
+const THIS_WEEK = newFullWeek(new Date())
 
-const SUNDAY_THIS_WEEK = startOfWeekYear(new Date(),{weekStartsOn:0})
-
-const this_week = newFullWeek(SUNDAY_THIS_WEEK)
-const THIS_WEEK = this_week instanceof Error ? days : this_week
-
-
-const weekReducer = (state = THIS_WEEK, action: { type:string,dayOfWeek:DayofWeek,entry?:EntryProps }) => {
-    const dayIndex = dayToProperNameToIndex(action.dayOfWeek)
+const weekReducer = (state = THIS_WEEK, action: { type:string,dayOfWeek:DayofWeek,entry?:EntryProps,entryIndex?:number}) => {
     switch (action.type) {
         case 'ADD_ENTRY':
-            return { ...state,...state[dayIndex].data[...state[dayIndex].data,action.entry]};
+            return {...state,[action.dayOfWeek]:{...state[action.dayOfWeek],data:[...state[action.dayOfWeek].data,action.entry]}};
         case 'UPDATE_ENTRY':
-            return { ...state,state[dayIndex]: action.unit };
+            return { ...state, 
+                [action.dayOfWeek]: { ...state[action.dayOfWeek],
+                    data:[...state[action.dayOfWeek].data.filter((_,index)=> index !== action.entryIndex ),action.entry]
+                }
+            };
         case 'REMOVE_ENTRY':
-            return { ...state,state[dayIndex] };    
+            return {...state,
+                [action.dayOfWeek]: {
+                    ...state[action.dayOfWeek],
+                    data: [...state[action.dayOfWeek].data.filter((_, index)=> index !== action.entryIndex )]
+                }
+            }; 
         default:
             return state;
-            break;
     }
 }
 
-const reducer = combineReducers({ columns: columnReducer, rows: rowReducer, timeUnit: timeUnitReducer })
+const reducer = combineReducers({ week: weekReducer})
 const store = createStore(reducer)
 
 // store.subscribe(() => {

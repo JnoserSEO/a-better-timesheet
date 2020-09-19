@@ -1,5 +1,5 @@
-import FullWeekArray, {DayEntry,DayofWeek} from '../models/fullweek.model'
-import { isSunday,startOfDay,getDay, endOfWeek, eachDayOfInterval } from 'date-fns'
+import {FullWeekObject,DayEntry,DayofWeek} from '../models/fullweek.model'
+import { startOfWeekYear,startOfDay,getDay, endOfWeek, eachDayOfInterval } from 'date-fns'
 
 type dayNum = 0 | 1 | 2 | 3 | 4 | 5 | 6
 
@@ -46,23 +46,16 @@ const getDayProperName = (date:Date):DayofWeek=> {
     return dayNumToProperName(dayNum)
 }
 
-const dateToDayEntry = (d:Date):DayEntry => ({ dayOfWeek: getDayProperName(d), date: startOfDay(d), data: [] })
-
-const newFullWeek = (sunday:Date):FullWeek|Error=>{
-    if(isSunday(sunday)){
-        const fullweek:DayEntry[] = eachDayOfInterval({ start: sunday, end: endOfWeek(sunday) }).map(dateToDayEntry)
-        if(fullweek.length === 7 && isFullWeek(fullweek)){
-            return fullweek as FullWeek  
-        }
-    }
-    return new Error('Date is not Sunday')
+const dateToDayEntryTupple = (d:Date):[DayofWeek,DayEntry] => {
+    const dayOfWeek = getDayProperName(d)
+    return [dayOfWeek,{ dayOfWeek:dayOfWeek , date: startOfDay(d), data: [] }]
 }
 
-const isFullWeek = (partialWeek:DayEntry[]):boolean =>{
-    if(partialWeek.length !== 7){
-        return false
-    }
-    return partialWeek.every((e, index) => e.dayOfWeek === dayNumToProperName(index as dayNum))
+const newFullWeek = (date:Date):FullWeekObject=>{
+    const sunday = startOfWeekYear(date, { weekStartsOn: 0 })
+    const weekTupples: [DayofWeek, DayEntry][] = eachDayOfInterval({ start: sunday, end: endOfWeek(sunday) }).map(dateToDayEntryTupple)
+    const fullweek = Object.fromEntries(weekTupples)
+    return fullweek as FullWeekObject
 }
 
 export default newFullWeek
