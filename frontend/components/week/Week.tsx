@@ -1,4 +1,5 @@
 import React from 'react'
+import {format,isToday} from 'date-fns'
 import Day from '../day/Day'
 import Hours from '../day/Hours'
 import AddTd from '../day/AddTd'
@@ -6,6 +7,7 @@ import { ReducerAction } from '../timesheet'
 import weekStyleFilter from '../../utility/week-style-filter'
 import Timesheetview from '../../models/view.model'
 import FullWeekTuple from '../../models/fullweek.model'
+import { DayEntry } from '../../models/fullweek.model'
 import '../../styles/week/week.scss'
 
 const calculateWeekTotalHours = (days:FullWeekTuple):number => days.map((day)=> day.data.reduce((acc,curr)=>acc+curr.hours,0)).reduce((acc,curr)=>acc+curr,0)
@@ -18,6 +20,10 @@ const WeekTotalHours:React.FC<{days:FullWeekTuple}> = ({days})=>{
     </div>
 }
 
+const DayInfo:React.FC<{index:number,day:DayEntry}> = ({index,day})=> (
+    <th className="day-info" key={index} >{`${isToday(day.date) ? 'Today ' : ''}${day.dayOfWeek} ${format(day.date, 'P')}`}</th>
+)
+
 interface WeekProps {
     days: FullWeekTuple;
     view: Timesheetview;
@@ -28,6 +34,7 @@ const Week: React.FC<WeekProps> = ({days,view,dispatch})=>{
     return <div>
         <table className="week">
             <tbody>
+                <tr>{days.map((day, index) => weekStyleFilter(view, index, <DayInfo index={index} day={day}/>)) }</tr>
                 <tr>
                 {days.map((day,index)=> weekStyleFilter(view,index,<Day key={index} date={day.date} entries={day.data} /> ))}
                 </tr>
