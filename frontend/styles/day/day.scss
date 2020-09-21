@@ -1,13 +1,21 @@
 @import '../colors/colors';
-
+@import './today-highlight';
 
 table, th, td {
   border: 0.5px solid black;
   border-collapse: collapse;
+  // min-width: 225px;
+  // min-height: 300px;
 }
 
 .hours-td{
     border-bottom-color: white;
-    min-width: 225px;
+    min-width: 256px;
     vertical-align: top;
+    min-height: 300px;
+}
+
+.today-highlight{
+  @include green-highlight;
+  border-bottom-color: $theme-light-green;
 }

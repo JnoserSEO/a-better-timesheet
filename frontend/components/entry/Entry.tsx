@@ -19,6 +19,7 @@ export const Entry:React.FC<EntryProps> = ({hours,name})=>{
             <div className="timesheet-entry-name"><span>{name}</span></div>
             <div className="timesheet-entry-hours"><span>{`${hours} Hour${hours > 1 ? 's' : '  '}`}</span></div>
         </div>
-        <button className="timesheet-entry-delete"><i className="fa fa-close"></i></button>
+        {/* <button className="timesheet-entry-delete"><i className="fa fa-close"></i></button> */}
+        <button className="timesheet-entry-delete">×</button>
     </div>
 }

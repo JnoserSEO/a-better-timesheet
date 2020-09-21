@@ -1,0 +1,5 @@
+@import '../colors/colors';
+
+@mixin green-highlight {
+    background-color:$theme-light-green;
+}

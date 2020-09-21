@@ -1,5 +1,5 @@
 import {FullWeekObject,DayEntry,DayofWeek} from '../models/fullweek.model'
-import { startOfWeekYear,startOfDay,getDay, endOfWeek, eachDayOfInterval } from 'date-fns'
+import { startOfWeek,startOfDay,getDay, endOfWeek, eachDayOfInterval } from 'date-fns'
 
 type dayNum = 0 | 1 | 2 | 3 | 4 | 5 | 6
 
@@ -52,7 +52,7 @@ const dateToDayEntryTupple = (d:Date):[DayofWeek,DayEntry] => {
 }
 
 const newFullWeek = (date:Date):FullWeekObject=>{
-    const sunday = startOfWeekYear(date, { weekStartsOn: 0 })
+    const sunday = startOfWeek(date, { weekStartsOn: 0 })
     const weekTupples: [DayofWeek, DayEntry][] = eachDayOfInterval({ start: sunday, end: endOfWeek(sunday) }).map(dateToDayEntryTupple)
     const fullweek = Object.fromEntries(weekTupples)
     return fullweek as FullWeekObject

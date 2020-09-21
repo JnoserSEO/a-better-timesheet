@@ -1,0 +1,42 @@
+@import '../colors/colors';
+@import './today-highlight';
+
+.add-td{
+    vertical-align: bottom;
+    border-top-color: white;
+    height: 30px;
+    width: 30px;
+}
+
+.add-div{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  font-weight: 500;
+  border:0.6px;
+  border-style: solid;
+  border-color: black;
+  text-align: center;
+  line-height: 1.9rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+.add:hover{
+    background: $theme-green;
+    color:white;
+    cursor:pointer;
+    border-color:white;
+}
+
+.add-today-highlight{
+    @include green-highlight;
+    border-top-color:$theme-light-green;
+}

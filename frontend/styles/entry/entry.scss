@@ -47,10 +47,11 @@
 @mixin timesheet-delete-reset{
     background: none;
     border: none;
-    font-size: 1.1rem;
+    font-size: 2rem;
+    font-weight:700;
     margin-right: -8px;
     align-self: end;
-    margin-top:-5px;
+    margin-top:-12px;
 }
 
 .timesheet-entry-delete{

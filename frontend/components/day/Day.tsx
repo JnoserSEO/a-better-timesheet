@@ -1,10 +1,17 @@
 import React from 'react'
-import { Entries, EntriesProps } from '../entry/Entries'
+import { isToday } from 'date-fns'
+import { Entries } from '../entry/Entries'
+import { EntryProps } from '../entry/Entry'
 import '../../styles/day/day.scss'
 import '../../styles/utility/utility.scss'
 
-const Day:React.FC<EntriesProps> = ({entries})=>{
-    return <td className="hours-td">
+interface DayProps {
+    date:Date;
+    entries:EntryProps[];
+}
+
+const Day:React.FC<DayProps> = ({date,entries})=>{
+    return <td className={`hours-td${isToday(date) ? ' today-highlight' : ''}`}>
             <Entries entries={entries} />
     </td>
 }

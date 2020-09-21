@@ -4,7 +4,7 @@ export type DayofWeek ='Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Frida
 
 export type DayEntry = { dayOfWeek:DayofWeek, date: Date; data: EntryProps[]}
 
-type FullWeekTupple = [
+type FullWeekTuple = [
     Sunday:DayEntry,
     Monday:DayEntry,
     Tuesday:DayEntry,
@@ -28,4 +28,4 @@ export interface FullWeekObject extends DayofWeekIndexed {
     Saturday: DayEntry,
 }
 
-export default FullWeekTupple
+export default FullWeekTuple

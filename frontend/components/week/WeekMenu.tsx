@@ -1,14 +1,15 @@
 import React from 'react'
 import TimesheetView from '../../models/view.model'
+import { ReducerAction } from '../timesheet'
 import WeekStyleSwitch from './WeekStyleSwitch'
 import '../../styles/week/week-menu.scss'
 
 interface WeekMenuProps {
     view:TimesheetView;
-    callback:(view:TimesheetView)=>void;
+    dispatch:React.Dispatch<ReducerAction>
 }
 
-const WeekMenu:React.FC<WeekMenuProps> =({view,callback})=>{
+const WeekMenu:React.FC<WeekMenuProps> =({view,dispatch})=>{
     return <div className="week-menu">
         <img height="51px" src="./img/calendar.svg" />
         <div className="week-menu-week-selector">
@@ -16,7 +17,7 @@ const WeekMenu:React.FC<WeekMenuProps> =({view,callback})=>{
             <div className="week-selected">This Week</div>
             <div className="week-not-selected">Next Week</div>
         </div>
-        <WeekStyleSwitch view={view} callback={callback} />
+        <WeekStyleSwitch view={view} dispatch={dispatch} />
     </div>
 }
 
