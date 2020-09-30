@@ -25,5 +25,10 @@ module.exports = {
     // Module file extensions for importing
     moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
     //Setup Enzyme Integration
-    "setupFilesAfterEnv": ["<rootDir>tests/setupTests.js"]
+    "setupFilesAfterEnv": ["<rootDir>tests/setupTests.js"],
+    //add mock files and scss proxies
+    "moduleNameMapper": {
+        "\\.(css|scss|sass)$": "identity-obj-proxy",//"<rootDir>/tests/__mocks__/styleMock.js",
+        "\\.(gif|ttf|eot|svg)$": "<rootDir>/tests/__mocks__/fileMock.js"
+    }
 };
