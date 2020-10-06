@@ -17,5 +17,6 @@ import TimeSheets from '../frontend/components/timesheet'
 //     Friday:{dayOfWeek:'Friday',date:new Date(),data:[{ hours: 2, name: 'Comp A' }, { hours: 1, name: 'Comp B' }, { hours: 5, name: 'Comp C' }, { hours: 1, name: 'Comp D' }]}, 
 //     Saturday:{dayOfWeek:'Saturday',date:new Date(),data:[{ hours: 1, name: 'Comp A' }]}
 // }
-
-ReactDOM.render(<Provider store={store}><TimeSheets /></Provider>, document.getElementById('app'))
+const App = ()=><Provider store={store}><TimeSheets /></Provider>
+ReactDOM.render(<App />, document.getElementById('app'))
+export default App

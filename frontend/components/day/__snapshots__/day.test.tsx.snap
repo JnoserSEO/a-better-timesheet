@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Day correctly with no entries 1`] = `
+<td
+  className="hours-td today-highlight"
+>
+  <Component
+    entries={Array []}
+  />
+</td>
+`;

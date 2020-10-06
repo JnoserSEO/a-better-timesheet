@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Entry with 1 hour 1`] = `[Function]`;
+
+exports[`should render Entry with 2 hours 1`] = `[Function]`;
+
+exports[`should render Entry with 4 hours 1`] = `[Function]`;

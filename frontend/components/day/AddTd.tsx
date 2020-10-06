@@ -11,7 +11,6 @@ interface AddTdProps {
 }
 
 const AddTd: React.FC<AddTdProps> = ({ index,day,dispatch }) => {
-    console.log(day)
     return <td key={index} className={`add-td${isToday(day.date) ? ' add-today-highlight' : ''}`}>
         <div className="add-div">
             <span className='add' onClick={() => dispatch({ type: 'SHOW_MODAL', value: day })}>+</span>

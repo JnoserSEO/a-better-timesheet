@@ -1,5 +1,6 @@
 import allActions from './actions/all-actions'
 import store from './store'
+import newFullWeek from '../utility/newFullWeek'
 
 beforeEach(() => {
     beforeEach(() => {
@@ -8,7 +9,8 @@ beforeEach(() => {
 });
 
 
-store.dispatch(allActions.weekActions.addEntry('Monday',{ hours: 4, name: 'Comp B' }))
+store.dispatch(allActions.weekActions.changeWeek(newFullWeek(new Date(1601401562455))))
+store.dispatch( allActions.weekActions.addEntry('Monday',{ hours: 4, name: 'Comp B' }) )
 store.getState()
 test('entry should be added to the store on Tuesday', () => {
     store.dispatch(allActions.weekActions.addEntry('Tuesday', { hours: 1, name: 'Comp A' }))

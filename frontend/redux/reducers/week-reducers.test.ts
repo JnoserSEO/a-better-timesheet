@@ -1,13 +1,14 @@
 import { FullWeekObject } from '../../models/fullweek.model';
 import weekReducer from './week-reducers'
+import newFullWeek from '../../utility/newFullWeek'
 
 beforeEach(() => {
     beforeEach(() => {
         Date.now = jest.fn(() => 1601401562455); // 2020-9-29
     });
 });
-
-const STATE = weekReducer(undefined, {
+const WEEK = newFullWeek(new Date(1601401562455))
+const STATE = weekReducer(WEEK, {
     type: 'ADD_ENTRY',
     dayOfWeek: 'Monday',
     entry: { hours: 4, name: 'Comp B' }

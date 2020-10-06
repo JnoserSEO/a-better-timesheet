@@ -34,12 +34,12 @@ const Week: React.FC<WeekProps> = ({days,view,dispatch})=>{
     return <div>
         <table className="week">
             <tbody>
-                <tr>{days.map((day, index) => weekStyleFilter(view, index, <DayInfo index={index} day={day}/>)) }</tr>
-                <tr>
+                <tr key={0} >{days.map((day, index) => weekStyleFilter(view, index, <DayInfo key={index} index={index} day={day}/>)) }</tr>
+                <tr key={1} >
                 {days.map((day,index)=> weekStyleFilter(view,index,<Day key={index} date={day.date} entries={day.data} /> ))}
                 </tr>
-                <tr>{days.map((day, index) => weekStyleFilter(view, index, <AddTd key={index} index={index} day={day} dispatch={dispatch} />) )}</tr>
-                <Hours days={days} view={view}/>
+                <tr key={2}>{days.map((day, index) => weekStyleFilter(view, index, <AddTd key={index} index={index} day={day} dispatch={dispatch} />) )}</tr>
+                <Hours akey={3} days={days} view={view} />
             </tbody>
         </table>
         <WeekTotalHours days={days} />

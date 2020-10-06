@@ -14,8 +14,8 @@ const HoursTd:React.FC<HoursTdProps> =({day,index})=>{
     return <td key={index} className="day-total">{`${hours} Hour${hours === 1 ? '' : 's'}`}</td> 
 }
 
-const Hours:React.FC<{days:FullWeekTuple,view:TimesheetView}> = ({days,view})=>{
-    return <tr>{days.map((day, index) => weekStyleFilter(view,index,<HoursTd key={index} day={day} index={index} />) )}</tr>
+const Hours:React.FC<{akey:number,days:FullWeekTuple,view:TimesheetView}> = ({akey,days,view})=>{
+    return <tr key={akey} >{days.map((day,index) => weekStyleFilter(view,index,<HoursTd key={index} day={day} index={index} />) )}</tr>
 }
 
 export default Hours
