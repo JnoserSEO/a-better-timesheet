@@ -23,5 +23,5 @@ test('should render Week with two timesheet entries', () => {
     expect(wrapper.find('.day-total')).toHaveLength(5)
     expect(wrapper.find('.day-info')).toHaveLength(5)
     expect(wrapper.find('.add-td')).toHaveLength(5)
-    expect(wrapper.find).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
 })
