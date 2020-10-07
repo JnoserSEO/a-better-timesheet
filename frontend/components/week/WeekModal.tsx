@@ -31,7 +31,7 @@ const WeekModal:React.FC<WeekModalProps> = ({day,dispatch})=>{
                 <input type="number" onChange={e => setHours(+e.target.value)/* cast to number */} /> 
             </div>
             <div>
-                <button onClick={() => {
+                <button id="entry-submit" onClick={() => {
                     reduxDispatch(allActions.weekActions.addEntry(day.dayOfWeek,{name:client,hours:hours})) 
                     dispatch({type:'HIDE_MODAL'})
                 }} >Submit</button>
