@@ -1,12 +1,12 @@
 import newFullWeek from '../../utility/newFullWeek'
 import { DayofWeek } from '../../models/fullweek.model'
-import { EntryProps } from '../../components/entry/Entry'
+import EntryData from '../../models/entryData.model'
 import { FullWeekObject} from '../../models/fullweek.model'
 
 
 const THIS_WEEK = newFullWeek(new Date())
 
-const weekReducer = (state = THIS_WEEK, action: { type: string, dayOfWeek?: DayofWeek, entry?: EntryProps, entryIndex?: number,state?:FullWeekObject}) => {
+const weekReducer = (state = THIS_WEEK, action: { type: string, dayOfWeek?: DayofWeek, entry?: EntryData, entryIndex?: number,state?:FullWeekObject}) => {
     switch (action.type) {
         case 'ADD_ENTRY':
             if(action.dayOfWeek)

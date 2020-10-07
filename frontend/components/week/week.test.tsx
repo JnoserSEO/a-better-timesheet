@@ -1,5 +1,7 @@
 import React from 'react'
 import {  mount } from 'enzyme'
+import store from '../../redux/store'
+import { Provider } from 'react-redux'
 import Week from './Week'
 import { FullWeekTuple } from '../../models/fullweek.model'
 
@@ -18,7 +20,7 @@ const days: FullWeekTuple = [{ dayOfWeek: 'Sunday', date: new Date('2020-09-27T0
 { dayOfWeek: 'Saturday', date: new Date('2020-10-03T00:00:00.000Z'), data: [] }]
 
 test('should render Week with two timesheet entries', () => {
-    const wrapper = mount(<Week days={days} view={'5 day'} dispatch={(x)=>x} />)
+    const wrapper = mount(<Provider store={store}><Week days={days} view={'5 day'} dispatch={(x) => x} /></Provider>)
     expect(wrapper.find('.timesheet-entry')).toHaveLength(2)
     expect(wrapper.find('.day-total')).toHaveLength(5)
     expect(wrapper.find('.day-info')).toHaveLength(5)

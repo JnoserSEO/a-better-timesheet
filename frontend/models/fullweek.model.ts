@@ -1,8 +1,8 @@
-import {EntryProps} from '../components/entry/Entry'
+import EntryData from './entryData.model'
 
 export type DayofWeek ='Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'
 
-export type DayEntry = { dayOfWeek:DayofWeek, date: Date; data: EntryProps[]}
+export type DayEntry = { dayOfWeek:DayofWeek, date: Date; data: EntryData[]}
 
 export type FullWeekTuple = [
     Sunday:DayEntry,

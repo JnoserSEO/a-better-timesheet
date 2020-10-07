@@ -1,8 +1,8 @@
 import { DayofWeek } from '../../models/fullweek.model'
-import { EntryProps } from '../../components/entry/Entry'
+import EntryData from '../../models/entryData.model'
 import { FullWeekObject } from '../../models/fullweek.model'
 
-const addEntry = (dayOfWeek:DayofWeek,entry:EntryProps)=>{
+const addEntry = (dayOfWeek: DayofWeek, entry: EntryData)=>{
     return {
         type: 'ADD_ENTRY',
         dayOfWeek:dayOfWeek,
@@ -10,7 +10,7 @@ const addEntry = (dayOfWeek:DayofWeek,entry:EntryProps)=>{
     }
 }
 
-const updateEntry = (dayOfWeek: DayofWeek, entry: EntryProps,entryIndex: number) => {
+const updateEntry = (dayOfWeek: DayofWeek, entry: EntryData, entryIndex: number) => {
     return {
         type: 'UPDATE_ENTRY',
         dayOfWeek: dayOfWeek,
@@ -19,7 +19,7 @@ const updateEntry = (dayOfWeek: DayofWeek, entry: EntryProps,entryIndex: number)
     }
 }
 
-const removeEntry = (dayOfWeek: DayofWeek,entryIndex: number) => {
+const removeEntry = (dayOfWeek: DayofWeek, entryIndex: number) => {
     return {
         type: 'REMOVE_ENTRY',
         dayOfWeek: dayOfWeek,

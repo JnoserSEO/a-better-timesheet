@@ -41,7 +41,7 @@ export const dayToProperNameToIndex = (dayOfWeek: DayofWeek) => {
     }
 }
 
-const getDayProperName = (date:Date):DayofWeek=> {
+export const getDayProperName = (date:Date):DayofWeek=> {
     const dayNum = getDay(date)
     return dayNumToProperName(dayNum)
 }

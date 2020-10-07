@@ -28,10 +28,6 @@ test('should add a timesheet entry', () => {
 
 test('should add and remove a timesheet entry', () => {
     const wrapper = mount(<Provider store={store}><TimeSheets /></Provider>)
-    wrapper.find('.add').at(0).simulate('click')
-    wrapper.find('input').at(0).simulate('change', { target: { value: 'Comp A' } })
-    wrapper.find('input').at(1).simulate('change', { target: { value: 1 } })
-    wrapper.find('#entry-submit').simulate('click')
     expect(wrapper.find('.timesheet-entry')).toHaveLength(1)
     wrapper.find('.timesheet-entry-delete').simulate('click')
     expect(wrapper.find('.timesheet-entry')).toHaveLength(0)
