@@ -1,7 +1,7 @@
 const { getLocalValue, saveLocalValue, removeLocalValue } =  require('./localStorage')
 
 beforeAll(() => {
-    // values stored in tests will also be available in other tests unless you run
+    //clear storage before test suite. Storage state is shared between tests.
     localStorage.clear();
 });
 
