@@ -21,7 +21,7 @@ module.exports = {
     // Matches parent folder `__tests__` and filename
     // should contain `test` or `spec`.
     testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-
+    "setupFiles": ["jest-localstorage-mock"],
     // Module file extensions for importing
     moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
     //Setup Enzyme Integration
