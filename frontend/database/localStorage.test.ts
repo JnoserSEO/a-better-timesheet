@@ -21,7 +21,7 @@ test('should get value from localStorage', () => {
     expect(storeValue).toEqual(VALUE)
 });
 
-test('should save to localStorage', () => {
+test('should remove value from localStorage', () => {
     const KEY = 'foo'
     removeLocalValue(KEY);
     expect(Object.keys(localStorage.__STORE__).length).toBe(0);
