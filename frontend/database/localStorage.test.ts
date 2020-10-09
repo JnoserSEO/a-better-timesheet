@@ -1,4 +1,4 @@
-const { getLocalValue, saveLocalValue } =  require('./localStorage')
+const { getLocalValue, saveLocalValue, removeLocalValue } =  require('./localStorage')
 
 beforeAll(() => {
     // values stored in tests will also be available in other tests unless you run
@@ -20,3 +20,11 @@ test('should get value from localStorage', () => {
     const storeValue = getLocalValue(KEY);
     expect(storeValue).toEqual(VALUE)
 });
+
+test('should save to localStorage', () => {
+    const KEY = 'foo'
+    removeLocalValue(KEY);
+    expect(Object.keys(localStorage.__STORE__).length).toBe(0);
+});
+
+
