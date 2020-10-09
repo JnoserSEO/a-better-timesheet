@@ -2,10 +2,10 @@
 
 exports[`should render Day correctly with no entries 1`] = `
 <td
-  className="hours-td today-highlight"
+  className="hours-td"
 >
   <Component
-    dayOfWeek="Wednesday"
+    dayOfWeek="Tuesday"
     entries={Array []}
   />
 </td>

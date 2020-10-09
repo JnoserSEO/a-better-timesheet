@@ -1,4 +1,4 @@
-import { /*getLocalValue,*/ saveLocalValue } from './localStorage'
+const { saveLocalValue } =  require('./localStorage')
 
 beforeEach(() => {
     // values stored in tests will also be available in other tests unless you run
